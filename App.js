@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import * as Location from 'expo-location';
-import { StyleSheet, Text, View, SafeAreaView, ActivityIndicator } from 'react-native';
+import { StyleSheet, View, SafeAreaView, ActivityIndicator } from 'react-native';
 import Map from './src/components/Map';
 import { LATITUDE_DELTA, LONGITUDE_DELTA } from './src/utils/Constants';
 import { getRequestPermissionAsync, getCameraPermissionAsync } from './src/utils/getPermission';
@@ -10,8 +10,8 @@ export default function App() {
 
   useEffect(() => {
     (async () => {
-      await getRequestPermissionAsync();
-      await getCameraPermissionAsync();
+      getRequestPermissionAsync();
+      getCameraPermissionAsync();
 
       const location = await Location.getCurrentPositionAsync({});
       const currentLocation = {

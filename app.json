@@ -17,7 +17,14 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "coderschool.photomap"
+    },
+    "android": {
+      "package": "coderschool.photomap",
+      "config": {
+        "googleMaps": {"apiKey": "AIzaSyC5b5lv2VIoT4ZDBzQ9PODPF3Mt2ryDOfk"}
+      }
     },
     "web": {
       "favicon": "./assets/favicon.png"

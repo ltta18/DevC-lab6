@@ -1,5 +1,4 @@
 import React from "react";
-import Lightbox from 'react-native-lightbox';
 import { 
   Callout, 
   Marker 
@@ -11,20 +10,9 @@ import {
   TouchableOpacity, 
   Image
 } from "react-native";
+import LightboxImage from "./LightboxImage";
 
 export default function ListMarker({ listMarker, handlePickImage, listImg }) {
-  const LightboxImage = ({ uri }) => {
-    return (
-      // <Lightbox underlayColor="white">
-        <Image
-            style={styles.image}
-            source={uri}
-            resizeMode="contain"
-        />
-      // </Lightbox>
-    )
-  }
-
   return (
     <>
     {listMarker.map((marker, i) => {
@@ -32,29 +20,25 @@ export default function ListMarker({ listMarker, handlePickImage, listImg }) {
         <Marker
           coordinate={marker}
           key={i}
-          style={styles.marker}
-          pinColor={'pink'}
         >
-          <Callout onPress={() => handlePickImage(i)}>
-              {console.log(listImg[i])}
-              {listImg[i].uri.length > 0 ?
-              <Image
-                  style={styles.image}
-                  source={listImg[i]}
-                  resizeMode="contain"
-              />
-              :
-              <View style={styles.buttonWrapper}>
-                <TouchableOpacity onPress={() => handlePickImage(i)}>
-                  <Text >Choose image</Text>
-                </TouchableOpacity>
-              </View>
-              
-              } 
+          <Callout>
+              <View style={styles.callout}>
+                {listImg[i]?.uri.length > 0 
+                ?
+                <LightboxImage listImg={listImg} i={i} />
+                :
+                <View style={styles.buttonWrapper}>
+                  <TouchableOpacity onPress={() => handlePickImage(i)}>
+                    <Text>Choose image</Text>
+                  </TouchableOpacity>
+                </View>
+                
+                } 
 
-              <View style={styles.textTitleWrapper}>
-                <Text style={styles.title}>Marker {i}</Text>
-              </View>   
+                <View style={styles.textTitleWrapper}>
+                  <Text style={styles.title}>Marker {i}</Text>
+                </View>   
+              </View>
           </Callout>
         </Marker>
       )
@@ -73,6 +57,13 @@ const styles = StyleSheet.create({
   image: {
     height: 100,
     width: 100,
-    backgroundColor: 'red',
   },
+  callout: {
+    flex: 1, 
+    width: 150,
+    height: 150,
+    alignItems: "center",
+    justifyContent: "center",
+    paddingVertical: 10
+  }
 });

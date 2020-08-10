@@ -11,7 +11,6 @@ export default function Map({ location }) {
   const handleLongPress = (e) => {
     if (e?.nativeEvent?.coordinate) {
       setListMarker([...listMarker, e.nativeEvent.coordinate])
-      setListImg([...listImg, {uri: ''}])
     }
   } 
 

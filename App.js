@@ -10,8 +10,8 @@ export default function App() {
 
   useEffect(() => {
     (async () => {
-      getRequestPermissionAsync();
-      getCameraPermissionAsync();
+      await getRequestPermissionAsync();
+      await getCameraPermissionAsync();
 
       const location = await Location.getCurrentPositionAsync({});
       const currentLocation = {

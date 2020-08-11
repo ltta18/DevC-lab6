@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import MapView from 'react-native-maps';
-import { StyleSheet, Dimensions } from 'react-native';
 import ListMarker from './ListMarker';
 import * as ImagePicker from 'expo-image-picker';
+import { StyleSheet, Dimensions } from 'react-native';
 
 export default function Map({ location }) {
   const [ listMarker, setListMarker ] = useState([])
@@ -38,7 +38,6 @@ export default function Map({ location }) {
         style={styles.mapStyle} 
         onLongPress={(e) => handleLongPress(e)} 
         initialRegion={location}
-        provider={"google"}
       >
         <ListMarker listMarker={listMarker} handlePickImage={handlePickImage} listImg={listImg}/>
       </MapView>

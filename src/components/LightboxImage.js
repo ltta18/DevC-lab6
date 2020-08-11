@@ -1,7 +1,7 @@
 import React from "react";
 import Lightbox from 'react-native-lightbox';
 import Carousel from 'react-native-looped-carousel';
-import { Image, StyleSheet } from "react-native";
+import { Image, StyleSheet, Text } from "react-native";
 import { WINDOW_WIDTH } from '../utils/Constants';
 
 export default function LightboxImage({ listImg, i }) {
@@ -17,11 +17,13 @@ export default function LightboxImage({ listImg, i }) {
 
   return (
     <Lightbox underlayColor="white" renderCarousel={() => renderCarousel(listImg[i])}>
-      <Image
+      <Text style={{width: 100, height: 100,justifyContent: 'center'}}>
+        <Image
           style={styles.image}
           source={listImg[i]}
           resizeMode="contain"
-      />
+        />
+      </Text>
     </Lightbox>
   )
 }

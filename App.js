@@ -1,13 +1,28 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { 
+  useState, 
+  useEffect, 
+  useMemo 
+} from 'react';
 import * as Location from 'expo-location';
-import { StyleSheet, View, SafeAreaView, ActivityIndicator } from 'react-native';
 import Map from './src/components/Map';
-import { LATITUDE_DELTA, LONGITUDE_DELTA } from './src/utils/Constants';
-import { getRequestPermissionAsync, getCameraPermissionAsync } from './src/utils/getPermission';
+import { 
+  StyleSheet, 
+  View, 
+  SafeAreaView, 
+  ActivityIndicator 
+} from 'react-native';
+import { 
+  LATITUDE_DELTA, 
+  LONGITUDE_DELTA 
+} from './src/utils/Constants';
+import { 
+  getRequestPermissionAsync, 
+  getCameraPermissionAsync 
+} from './src/utils/getPermission';
 
 export default function App() {
   const [ location, setLocation ] = useState(null);
-
+  
   useEffect(() => {
     (async () => {
       await getRequestPermissionAsync();
@@ -50,3 +65,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+console.disableYellowBox = true;

@@ -1,14 +1,13 @@
 import React from "react";
 import { 
   Callout, 
-  Marker 
+  Marker
 } from "react-native-maps";
 import { 
   View, 
   StyleSheet, 
   Text, 
   TouchableOpacity, 
-  Image
 } from "react-native";
 import LightboxImage from "./LightboxImage";
 
@@ -32,7 +31,6 @@ export default function ListMarker({ listMarker, handlePickImage, listImg }) {
                     <Text>Choose image</Text>
                   </TouchableOpacity>
                 </View>
-                
                 } 
 
                 <View style={styles.textTitleWrapper}>
